@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         dogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                //Open new activity
             }
         });
     }
