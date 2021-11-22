@@ -9,12 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class PetAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    List<Pet> petList = Collections.emptyList();
-    Context context;
+    private Context myContext;
+
+    public PetAdapter(Context context){
+        myContext = context;
+    }
 
     @NonNull
     @Override
@@ -25,15 +29,16 @@ public class PetAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        //final int index = viewHolder.getAdapterPosition();
-        viewHolder.petName.setText(petList.get(position).getName());
-        viewHolder.petLocation.setText(petList.get(position).getLocation());
-        viewHolder.petAge.setText(petList.get(position).getAge());
+
+        Pet dog = DataStorage.petData.get(position);
+        viewHolder.petName.setText(dog.getName());
+        viewHolder.petLocation.setText(dog.getLocation());
+        //viewHolder.petAge.setText(dog.getAge());
     }
 
 
     @Override
     public int getItemCount() {
-        return petList.size();
+        return DataStorage.petData.size();
     }
 }
