@@ -7,8 +7,10 @@ public class DataStorage {
     public static HashMap<Integer, Pet> petData = new HashMap<Integer, Pet>();
 
     public static void fillData(){
-        Pet dog = new Pet(1, "Pasko", "Split", "Pasko is black and smart dog", 10);
-        petData.put(0, dog);
+        for(int i = 0; i < 10; i++){
+            Pet dog = new Pet(i+1, "Ari", "Split", "Ari is black and brown dog", 10);
+            petData.put(i, dog);
+        }
     }
 
 

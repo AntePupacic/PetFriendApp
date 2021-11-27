@@ -6,6 +6,12 @@
     android:layout_height="100dp">
 
 
+    <ImageView
+        android:id="@+id/petImage"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="wrap_content"
