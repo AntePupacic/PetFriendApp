@@ -8,19 +8,19 @@ import android.widget.Toast;
 
 public class PetInfo extends AppCompatActivity {
 
-    TextView position;
+    TextView txtViewPos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_info);
 
-        position = (TextView) findViewById(R.id.txtViewPos);
+        txtViewPos = (TextView) findViewById(R.id.txtViewPos);
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            String value = extras.getString("Position");
-            position.setText(value);
-            Toast.makeText(getApplicationContext(), "Data: " +
-                    value, Toast.LENGTH_SHORT).show();
+            Integer position = extras.getInt("Position");
+            txtViewPos.setText(String.valueOf(position));
+            Toast.makeText(getApplicationContext(), "Position: " +
+                    position, Toast.LENGTH_SHORT).show();
         }
 
 
