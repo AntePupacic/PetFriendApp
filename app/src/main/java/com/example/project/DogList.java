@@ -26,8 +26,6 @@ public class DogList extends AppCompatActivity {
             public void onClick(View v, int position) {
                 Intent intent = new Intent(DogList.this, PetInfo.class);
                 intent.putExtra("Position", position);
-                Toast.makeText(getApplicationContext(), "Position: " +
-                        position, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         };
