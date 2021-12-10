@@ -7,12 +7,8 @@ public class Pet {
     private String description;
     private int age;
 
-    public Pet(int ID, String name, String location, String description, int age) {
-        this.ID = ID;
-        this.name = name;
-        this.location = location;
-        this.description = description;
-        this.age = age;
+    public int getID() {
+        return ID;
     }
 
     public String getName() {
@@ -46,4 +42,9 @@ public class Pet {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
 }

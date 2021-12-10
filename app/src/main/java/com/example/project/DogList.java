@@ -20,10 +20,10 @@ public class DogList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_list);
 
-        DataStorage.fillData();
         recycleViewClickListener();
         addBtn = (Button) findViewById(R.id.addBtn);
-        dogRecycleView = findViewById(R.id.dogRecycleView);
+        addPet();
+        dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
         PetAdapter petAdapter = new PetAdapter(getApplicationContext(), listener);
         dogRecycleView.setAdapter(petAdapter);
 
@@ -45,7 +45,8 @@ public class DogList extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DogList.this, PetInfo.class);
+                Intent intent = new Intent(DogList.this, AddPet.class);
+                startActivity(intent);
             }
         });
     }

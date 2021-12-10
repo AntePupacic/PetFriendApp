@@ -9,70 +9,62 @@
 
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name" />
+        android:text="Name"
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/editTxtPetName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Name" />
+        android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/txtPetDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description" />
+        android:text="Description"
+        android:textSize="25dp"/>
 
     <EditText
         android:id="@+id/editTxtPetDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Name" />
+        android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Location"
+        android:textSize="25dp"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTxtLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Age"
+        android:textSize="25dp"/>
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/editTxtAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <Button
+        android:id="@+id/btnAddPet"
+        android:text="ADD PET"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/editTextNumber2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number" />
+
 </LinearLayout>
