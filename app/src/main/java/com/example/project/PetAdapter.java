@@ -58,8 +58,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         Pet dog = DataStorage.petData.get(position);
         viewHolder.petName.setText(dog.getName());
         viewHolder.petLocation.setText(dog.getLocation());
-
-        //viewHolder.petAge.setText(dog.getAge());
+        viewHolder.petAge.setText(String.valueOf(dog.getAge()));
     }
 
     public interface RecycleViewClickListener{
