@@ -10,23 +10,19 @@ import androidx.annotation.Nullable;
 public class PetDataDBHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + PetColumnsDB.PetEntry.TABLE_NAME + " (" +
-                    PetColumnsDB.PetEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    PetColumnsDB.PetEntry.COLUMN_NAME + " TEXT," +
-                    PetColumnsDB.PetEntry.COLUMN_LOCATION + " TEXT," +
-                    PetColumnsDB.PetEntry.COLUMN_DESCRIPTION + " TEXT," +
-                    PetColumnsDB.PetEntry.COLUMN_AGE + " INTEGER)";
+            "CREATE TABLE " + PetEntry.TABLE_NAME + " (" +
+                    PetEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    PetEntry.COLUMN_NAME + " TEXT," +
+                    PetEntry.COLUMN_LOCATION + " TEXT," +
+                    PetEntry.COLUMN_DESCRIPTION + " TEXT," +
+                    PetEntry.COLUMN_AGE + " INTEGER)";
 
     private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + PetColumnsDB.PetEntry.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + PetEntry.TABLE_NAME;
 
-
-
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "PetData.db";
 
     public PetDataDBHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, PetEntry.DATABASE_NAME, null, PetEntry.DATABASE_VERSION);
     }
 
     @Override

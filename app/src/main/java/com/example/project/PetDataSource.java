@@ -27,17 +27,17 @@ public class PetDataSource {
     void addPetDetailsToDB(String name, String description, String location, Integer age){
 
         ContentValues values = new ContentValues();
-        values.put(PetColumnsDB.PetEntry.COLUMN_NAME, name);
-        values.put(PetColumnsDB.PetEntry.COLUMN_DESCRIPTION, description);
-        values.put(PetColumnsDB.PetEntry.COLUMN_LOCATION, location);
-        values.put(PetColumnsDB.PetEntry.COLUMN_AGE, age);
+        values.put(PetEntry.COLUMN_NAME, name);
+        values.put(PetEntry.COLUMN_DESCRIPTION, description);
+        values.put(PetEntry.COLUMN_LOCATION, location);
+        values.put(PetEntry.COLUMN_AGE, age);
 
-        db.insert(PetColumnsDB.PetEntry.TABLE_NAME, null, values);
+        db.insert(PetEntry.TABLE_NAME, null, values);
     }
 
     public ArrayList<Pet> getAllPetData(){
         ArrayList<Pet> pets = new ArrayList<Pet>();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + PetColumnsDB.PetEntry.TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + PetEntry.TABLE_NAME, null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             Pet pet = new Pet();

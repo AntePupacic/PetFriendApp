@@ -41,7 +41,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
             petName = (TextView) itemView.findViewById(R.id.petName);
             petLocation = (TextView) itemView.findViewById(R.id.petLocation);
             petAge = (TextView) itemView.findViewById(R.id.petAge);
-
             view.setOnClickListener(this);
         }
 
@@ -69,7 +68,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         viewHolder.petAge.setText(String.valueOf(pets.get(position).getAge()));
 
         petDs.close();
-
 
     }
 

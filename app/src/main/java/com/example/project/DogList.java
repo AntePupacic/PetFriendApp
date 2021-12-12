@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,10 +22,12 @@ public class DogList extends AppCompatActivity {
         setContentView(R.layout.activity_dog_list);
 
         recycleViewClickListener();
+        Log.i("HUS", "prije");
         addBtn = (Button) findViewById(R.id.addBtn);
         addPet();
         dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
         PetAdapter petAdapter = new PetAdapter(getApplicationContext(), listener);
+        Log.i("HUS", "iza");
         dogRecycleView.setAdapter(petAdapter);
 
     }
