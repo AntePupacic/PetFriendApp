@@ -10,25 +10,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class DogList extends AppCompatActivity {
 
     private RecyclerView dogRecycleView;
     private PetAdapter.RecycleViewClickListener listener;
     private Button addBtn;
-
+    PetDataSource petDs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_list);
 
+        Log.i("ANTE", "prije");
+        petDs = new PetDataSource(getApplicationContext());
+        petDs.open();
+        ArrayList<Pet> pets = petDs.getAllPetData();
         recycleViewClickListener();
-        Log.i("HUS", "prije");
         addBtn = (Button) findViewById(R.id.addBtn);
         addPet();
         dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
-        PetAdapter petAdapter = new PetAdapter(getApplicationContext(), listener);
-        Log.i("HUS", "iza");
+        PetAdapter petAdapter = new PetAdapter(getApplicationContext(), pets, listener);
         dogRecycleView.setAdapter(petAdapter);
+        Log.i("ANTE", "iza");
 
     }
 
@@ -53,4 +58,5 @@ public class DogList extends AppCompatActivity {
             }
         });
     }
+
 }

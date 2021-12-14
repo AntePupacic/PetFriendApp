@@ -15,7 +15,7 @@ public class PetDataDBHelper extends SQLiteOpenHelper {
                     PetEntry.COLUMN_NAME + " TEXT," +
                     PetEntry.COLUMN_LOCATION + " TEXT," +
                     PetEntry.COLUMN_DESCRIPTION + " TEXT," +
-                    PetEntry.COLUMN_AGE + " INTEGER)";
+                    PetEntry.COLUMN_AGE + " TEXT)";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + PetEntry.TABLE_NAME;

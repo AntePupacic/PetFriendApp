@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -24,15 +25,21 @@ public class PetDataSource {
         db.close();
     }
 
-    void addPetDetailsToDB(String name, String description, String location, Integer age){
+    public boolean addPetDetailsToDB(String name, String description, String location, String age){
 
         ContentValues values = new ContentValues();
         values.put(PetEntry.COLUMN_NAME, name);
-        values.put(PetEntry.COLUMN_DESCRIPTION, description);
-        values.put(PetEntry.COLUMN_LOCATION, location);
+        values.put(PetEntry.COLUMN_LOCATION, description);
+        values.put(PetEntry.COLUMN_DESCRIPTION, location);
         values.put(PetEntry.COLUMN_AGE, age);
 
-        db.insert(PetEntry.TABLE_NAME, null, values);
+        long result = db.insert(PetEntry.TABLE_NAME, null, values);
+
+        if(result == -1){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public ArrayList<Pet> getAllPetData(){
@@ -45,9 +52,11 @@ public class PetDataSource {
             pet.setName(cursor.getString(1));
             pet.setDescription(cursor.getString(2));
             pet.setLocation(cursor.getString(3));
-            pet.setAge(cursor.getInt(4));
+            pet.setAge(cursor.getString(4));
             pets.add(pet);
+            cursor.moveToNext();
         }
+
         cursor.close();
         return pets;
     }

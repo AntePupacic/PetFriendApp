@@ -8,29 +8,36 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddPet extends AppCompatActivity {
 
     EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge;
     Button btnAddPet;
     String petName, petDescription, petLocation, petAge;
-
+    PetDataSource petDs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet);
-
-        Log.i("SIMO", "Prije");
+        
         findViews();
-        final PetDataSource petDs = new PetDataSource(getApplicationContext());
-        petDs.open();
         getPetDetails();
+        addDataToDB();
 
+    }
+
+    private void addDataToDB(){
         btnAddPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                petDs.addPetDetailsToDB(petName,petDescription, petLocation, Integer.valueOf(petAge));
-                Intent intent = new Intent(AddPet.this, DogList.class);
+                if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, petAge)){
+                    makeToast("Uspješno upisan podatak u DB");
+                }else{
+                    makeToast("Greška pri upisu podatka u DB");
+                }
+                petDs.close();
+                Intent intent = new Intent(AddPet.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -42,6 +49,8 @@ public class AddPet extends AppCompatActivity {
         editTxtLocation = (EditText) findViewById(R.id.editTxtLocation);
         editTxtAge = (EditText) findViewById(R.id.editTxtAge);
         btnAddPet = (Button) findViewById(R.id.btnAddPet);
+        petDs = new PetDataSource(getApplicationContext());
+        petDs.open();
     }
 
 
@@ -50,5 +59,9 @@ public class AddPet extends AppCompatActivity {
         petDescription = editTxtPetDescription.getText().toString();
         petLocation = editTxtLocation.getText().toString();
         petAge = editTxtAge.getText().toString();
+    }
+
+    private void makeToast(String msg){
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }

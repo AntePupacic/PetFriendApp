@@ -5,7 +5,7 @@ public class Pet {
     private String name;
     private String location;
     private String description;
-    private int age;
+    private String age;
 
     public int getID() {
         return ID;
@@ -35,11 +35,11 @@ public class Pet {
         this.description = description;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

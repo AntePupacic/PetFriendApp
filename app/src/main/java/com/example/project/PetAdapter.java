@@ -1,35 +1,32 @@
 package com.example.project;
 
 import android.content.Context;
-import android.telecom.Call;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+
 
 public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
-    private Context myContext;
+    public Context myContext;
     public RecycleViewClickListener myRecycleViewClickListener;
-    PetDataSource petDs;
+    public ArrayList<Pet> myPets;
 
-    public PetAdapter(Context context, RecycleViewClickListener recycleViewClickListener) {
+    public PetAdapter(Context context, ArrayList<Pet> pets, RecycleViewClickListener recycleViewClickListener) {
         myContext = context;
         myRecycleViewClickListener = recycleViewClickListener;
-        petDs = new PetDataSource(myContext);
+        myPets = pets;
     }
-
-    ArrayList<Pet> pets = petDs.getAllPetData();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView petName, petLocation, petAge;
@@ -58,17 +55,9 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-
-        PetDataSource petDs = new PetDataSource(myContext);
-        ArrayList<Pet> pets = petDs.getAllPetData();
-        petDs.open();
-
-        viewHolder.petName.setText(pets.get(position).getName());
-        viewHolder.petLocation.setText(pets.get(position).getLocation());
-        viewHolder.petAge.setText(String.valueOf(pets.get(position).getAge()));
-
-        petDs.close();
-
+        viewHolder.petName.setText(myPets.get(position).getName());
+        viewHolder.petLocation.setText(myPets.get(position).getLocation());
+        viewHolder.petAge.setText(myPets.get(position).getAge());
     }
 
     public interface RecycleViewClickListener{
@@ -77,6 +66,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return pets.size();
+        return myPets.size();
     }
 }
