@@ -22,15 +22,14 @@ public class AddPet extends AppCompatActivity {
         setContentView(R.layout.activity_add_pet);
         
         findViews();
-        getPetDetails();
         addDataToDB();
-
     }
 
     private void addDataToDB(){
         btnAddPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getPetDetails();
                 if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, petAge)){
                     makeToast("Uspješno upisan podatak u DB");
                 }else{
