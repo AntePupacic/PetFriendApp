@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button dogBtn, addBtn;
+    Button dogBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
