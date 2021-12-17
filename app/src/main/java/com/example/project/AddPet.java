@@ -31,9 +31,9 @@ public class AddPet extends AppCompatActivity {
             public void onClick(View v) {
                 getPetDetails();
                 if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, petAge)){
-                    makeToast("Uspješno upisan podatak u DB");
+                    makeToast("Uspjesno upisan podatak u DB");
                 }else{
-                    makeToast("Greška pri upisu podatka u DB");
+                    makeToast("Greska pri upisu podatka u DB");
                 }
                 petDs.close();
                 Intent intent = new Intent(AddPet.this, MainActivity.class);
