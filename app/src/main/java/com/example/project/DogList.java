@@ -23,17 +23,16 @@ public class DogList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_list);
 
-        Log.i("ANTE", "prije");
         petDs = new PetDataSource(getApplicationContext());
         petDs.open();
         ArrayList<Pet> pets = petDs.getAllPetData();
         recycleViewClickListener();
         addBtn = (Button) findViewById(R.id.addBtn);
         addPet();
+
         dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
         PetAdapter petAdapter = new PetAdapter(getApplicationContext(), pets, listener);
         dogRecycleView.setAdapter(petAdapter);
-        Log.i("ANTE", "iza");
 
     }
 
