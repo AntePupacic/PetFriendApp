@@ -18,6 +18,7 @@ public class DogList extends AppCompatActivity {
     private PetAdapter.RecycleViewClickListener listener;
     private Button addBtn;
     PetDataSource petDs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,6 @@ public class DogList extends AppCompatActivity {
         dogRecycleView.setAdapter(petAdapter);
 
     }
-
 
     private void recycleViewClickListener(){
         listener = new PetAdapter.RecycleViewClickListener() {
