@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 public class AddPet extends AppCompatActivity {
 
+
+    //Bakota
     EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge;
     Button btnAddPet, btnAddImg;
     String petName, petDescription, petLocation, petAge;
