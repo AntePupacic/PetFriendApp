@@ -56,14 +56,12 @@ public class PetInfo extends AppCompatActivity {
         petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
         phoneCall.setText("CALL " + DataStorage.pets.get(position).getPhone());
     }
-
-    //Phone call not working
+    
     private void makePhoneCall(){
         phoneCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 callPhoneNumber();
-
             }
         });
     }
