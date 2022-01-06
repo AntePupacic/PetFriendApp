@@ -7,6 +7,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -35,7 +36,7 @@ public class PetInfo extends AppCompatActivity {
         }
 
         setDataIntoViews();
-        clickPhoneCall();
+        makePhoneCall();
     }
 
     private void findViews(){
@@ -57,19 +58,51 @@ public class PetInfo extends AppCompatActivity {
     }
 
     //Phone call not working
-    private void clickPhoneCall(){
+    private void makePhoneCall(){
         phoneCall.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:" + DataStorage.pets.get(position).getPhone()));
+            public void onClick(View arg0) {
+                callPhoneNumber();
 
-                if (ActivityCompat.checkSelfPermission(PetInfo.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    return;
-                }
-                startActivity(callIntent);
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 101) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                callPhoneNumber();
+            }
+        }
+    }
+    public void callPhoneNumber()
+    {
+        try
+        {
+            if(Build.VERSION.SDK_INT > 22)
+            {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(PetInfo.this, new String[]{Manifest.permission.CALL_PHONE}, 101);
+                    return;
+                }
+
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + DataStorage.pets.get(position).getPhone()));
+                startActivity(callIntent);
+
+            }
+            else {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + DataStorage.pets.get(position).getPhone()));
+                startActivity(callIntent);
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
 }
