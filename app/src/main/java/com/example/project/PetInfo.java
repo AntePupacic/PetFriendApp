@@ -33,6 +33,7 @@ public class PetInfo extends AppCompatActivity {
         if(extras != null){
             position = extras.getInt("Position");
         }
+
         setDataIntoViews();
         clickPhoneCall();
     }
@@ -45,6 +46,7 @@ public class PetInfo extends AppCompatActivity {
         phoneCall = (Button) findViewById(R.id.btnCallPhone);
         petImage = (ImageView) findViewById(R.id.petImage);
     }
+
     private void setDataIntoViews(){
         txtViewName.setText(DataStorage.pets.get(position).getName());
         txtViewDes.setText(DataStorage.pets.get(position).getDescription());
@@ -54,6 +56,7 @@ public class PetInfo extends AppCompatActivity {
         phoneCall.setText("CALL " + DataStorage.pets.get(position).getPhone());
     }
 
+    //Phone call not working
     private void clickPhoneCall(){
         phoneCall.setOnClickListener(new View.OnClickListener() {
             @Override
