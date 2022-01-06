@@ -20,12 +20,10 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
     public Context myContext;
     public RecycleViewClickListener myRecycleViewClickListener;
-    public ArrayList<Pet> myPets;
 
-    public PetAdapter(Context context, ArrayList<Pet> pets, RecycleViewClickListener recycleViewClickListener) {
+    public PetAdapter(Context context, RecycleViewClickListener recycleViewClickListener) {
         myContext = context;
         myRecycleViewClickListener = recycleViewClickListener;
-        myPets = pets;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -55,9 +53,10 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.petName.setText(myPets.get(position).getName());
-        viewHolder.petLocation.setText(myPets.get(position).getLocation());
-        viewHolder.petAge.setText(myPets.get(position).getAge());
+        viewHolder.petName.setText(DataStorage.pets.get(position).getName());
+        viewHolder.petLocation.setText(DataStorage.pets.get(position).getLocation());
+        viewHolder.petAge.setText(DataStorage.pets.get(position).getAge());
+        viewHolder.petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
     }
 
     public interface RecycleViewClickListener{
@@ -66,6 +65,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return myPets.size();
+        return DataStorage.pets.size();
     }
 }

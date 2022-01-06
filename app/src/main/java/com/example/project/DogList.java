@@ -17,22 +17,20 @@ public class DogList extends AppCompatActivity {
     private RecyclerView dogRecycleView;
     private PetAdapter.RecycleViewClickListener listener;
     private Button addBtn;
-    PetDataSource petDs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_list);
 
-        petDs = new PetDataSource(getApplicationContext());
-        petDs.open();
-        ArrayList<Pet> pets = petDs.getAllPetData();
         recycleViewClickListener();
         addBtn = (Button) findViewById(R.id.addBtn);
+        DataStorage.fillData(getApplicationContext());
         addPet();
 
         dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
-        PetAdapter petAdapter = new PetAdapter(getApplicationContext(), pets, listener);
+        PetAdapter petAdapter = new PetAdapter(getApplicationContext(), listener);
         dogRecycleView.setAdapter(petAdapter);
 
     }
@@ -47,6 +45,7 @@ public class DogList extends AppCompatActivity {
             }
         };
     }
+
 
     private void addPet(){
         addBtn.setOnClickListener(new View.OnClickListener() {

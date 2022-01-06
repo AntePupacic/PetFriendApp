@@ -25,13 +25,15 @@ public class PetDataSource {
         db.close();
     }
 
-    public boolean addPetDetailsToDB(String name, String description, String location, String age){
+    public boolean addPetDetailsToDB(String name, String description, String location, String age, String phone, byte[] image){
 
         ContentValues values = new ContentValues();
         values.put(PetEntry.COLUMN_NAME, name);
         values.put(PetEntry.COLUMN_LOCATION, description);
         values.put(PetEntry.COLUMN_DESCRIPTION, location);
         values.put(PetEntry.COLUMN_AGE, age);
+        values.put(PetEntry.COLUMN_PHONE, phone);
+        values.put(PetEntry.COLUMN_IMAGE, image);
 
         long result = db.insert(PetEntry.TABLE_NAME, null, values);
 
@@ -53,10 +55,11 @@ public class PetDataSource {
             pet.setDescription(cursor.getString(2));
             pet.setLocation(cursor.getString(3));
             pet.setAge(cursor.getString(4));
+            pet.setPhone(cursor.getString(5));
+            pet.setImage(cursor.getBlob(6));
             pets.add(pet);
             cursor.moveToNext();
         }
-
         cursor.close();
         return pets;
     }

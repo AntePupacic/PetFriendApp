@@ -1,14 +1,22 @@
 package com.example.project;
 
+import android.graphics.Bitmap;
+
 public class Pet {
     private int ID;
     private String name;
     private String location;
     private String description;
     private String age;
+    private String phone;
+    private byte[] image;
 
     public int getID() {
         return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getName() {
@@ -43,8 +51,19 @@ public class Pet {
         this.age = age;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public String getPhone() {
+        return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 }
