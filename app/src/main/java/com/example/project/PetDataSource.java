@@ -63,4 +63,9 @@ public class PetDataSource {
         cursor.close();
         return pets;
     }
+
+    public boolean deletePet(int id){
+        return db.delete(PetEntry.TABLE_NAME, PetEntry._ID + "=" + id, null ) > 0;
+    }
+
 }

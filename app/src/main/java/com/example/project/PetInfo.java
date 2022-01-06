@@ -20,8 +20,9 @@ public class PetInfo extends AppCompatActivity {
 
     TextView txtViewName, txtViewDes, txtViewLoc, txtViewAge;
     ImageView petImage;
-    Button phoneCall;
+    Button btnPhoneCall, btnDeletePet;
     Integer position;
+    PetDataSource petDs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class PetInfo extends AppCompatActivity {
 
         setDataIntoViews();
         makePhoneCall();
+        DeletePet();
     }
 
     private void findViews(){
@@ -44,8 +46,11 @@ public class PetInfo extends AppCompatActivity {
         txtViewDes = (TextView) findViewById(R.id.txtViewDes);
         txtViewLoc = (TextView) findViewById(R.id.txtViewLoc);
         txtViewAge = (TextView) findViewById(R.id.txtViewAge);
-        phoneCall = (Button) findViewById(R.id.btnCallPhone);
+        btnPhoneCall = (Button) findViewById(R.id.btnCallPhone);
+        btnDeletePet = (Button) findViewById(R.id.btnDeletePet);
         petImage = (ImageView) findViewById(R.id.petImage);
+        petDs = new PetDataSource(getApplicationContext());
+        petDs.open();
     }
 
     private void setDataIntoViews(){
@@ -54,11 +59,11 @@ public class PetInfo extends AppCompatActivity {
         txtViewLoc.setText(DataStorage.pets.get(position).getLocation());
         txtViewAge.setText(DataStorage.pets.get(position).getAge());
         petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
-        phoneCall.setText("CALL " + DataStorage.pets.get(position).getPhone());
+        btnPhoneCall.setText("CALL " + DataStorage.pets.get(position).getPhone());
     }
-    
+
     private void makePhoneCall(){
-        phoneCall.setOnClickListener(new View.OnClickListener() {
+        btnPhoneCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 callPhoneNumber();
@@ -101,6 +106,21 @@ public class PetInfo extends AppCompatActivity {
         {
             ex.printStackTrace();
         }
+    }
+
+    private void DeletePet(){
+        btnDeletePet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(petDs.deletePet(DataStorage.pets.get(position).getID())){
+                    Toast.makeText(getApplicationContext(), "Uspješno izbrisan podatak iz DB", Toast.LENGTH_SHORT).show();
+                    Intent dogIntent = new Intent(PetInfo.this, DogList.class);
+                    startActivity(dogIntent);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Greška pri brisanju podatka iz DB", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 }
