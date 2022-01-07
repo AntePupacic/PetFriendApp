@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,7 +39,8 @@ public class PetInfo extends AppCompatActivity {
 
         setDataIntoViews();
         makePhoneCall();
-        DeletePet();
+        deletePet();
+        updatePet();
     }
 
     private void findViews(){
@@ -48,9 +50,9 @@ public class PetInfo extends AppCompatActivity {
         txtViewAge = (TextView) findViewById(R.id.txtViewAge);
         btnPhoneCall = (Button) findViewById(R.id.btnCallPhone);
         btnDeletePet = (Button) findViewById(R.id.btnDeletePet);
+        btnUpdatePet = (Button) findViewById(R.id.btnUpdatePet);
         petImage = (ImageView) findViewById(R.id.petImage);
         petDs = new PetDataSource(getApplicationContext());
-        petDs.open();
     }
 
     private void setDataIntoViews(){
@@ -80,6 +82,7 @@ public class PetInfo extends AppCompatActivity {
             }
         }
     }
+
     public void callPhoneNumber()
     {
         try
@@ -108,11 +111,12 @@ public class PetInfo extends AppCompatActivity {
         }
     }
 
-    private void DeletePet(){
+    private void deletePet(){
         btnDeletePet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(petDs.deletePet(DataStorage.pets.get(position).getID())){
+                    petDs.close();
                     Toast.makeText(getApplicationContext(), "Uspješno izbrisan podatak iz DB", Toast.LENGTH_SHORT).show();
                     Intent dogIntent = new Intent(PetInfo.this, DogList.class);
                     startActivity(dogIntent);
@@ -123,7 +127,7 @@ public class PetInfo extends AppCompatActivity {
         });
     }
 
-    private void UpdatePet(){
+    private void updatePet(){
         btnUpdatePet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,5 +137,6 @@ public class PetInfo extends AppCompatActivity {
             }
         });
     }
+
 
 }

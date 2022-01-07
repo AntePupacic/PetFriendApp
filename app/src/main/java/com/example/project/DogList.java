@@ -47,7 +47,7 @@ public class DogList extends AppCompatActivity {
         };
     }
 
-
+    //New activity to add pet data into DB
     private void addPet(){
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
