@@ -33,13 +33,18 @@
         android:layout_height="wrap_content"
         android:text="" />
     <Button
-    android:id="@+id/btnCallPhone"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+        android:id="@+id/btnCallPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btnDeletePet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DELETE"/>
+    <Button
+        android:id="@+id/btnUpdatePet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"/>
 
 </LinearLayout>

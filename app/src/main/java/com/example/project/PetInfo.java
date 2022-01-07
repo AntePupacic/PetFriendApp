@@ -20,7 +20,7 @@ public class PetInfo extends AppCompatActivity {
 
     TextView txtViewName, txtViewDes, txtViewLoc, txtViewAge;
     ImageView petImage;
-    Button btnPhoneCall, btnDeletePet;
+    Button btnPhoneCall, btnDeletePet, btnUpdatePet;
     Integer position;
     PetDataSource petDs;
 
@@ -119,6 +119,17 @@ public class PetInfo extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(), "Greška pri brisanju podatka iz DB", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+    }
+
+    private void UpdatePet(){
+        btnUpdatePet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PetInfo.this, UpdatePet.class);
+                intent.putExtra("Position", position);
+                startActivity(intent);
             }
         });
     }
