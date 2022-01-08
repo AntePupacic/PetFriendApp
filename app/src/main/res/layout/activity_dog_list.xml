@@ -13,11 +13,22 @@
         android:layout_height="wrap_content"
         android:text="ADD" />
 
+    <SearchView
+        android:id="@+id/conatinerSearchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:queryHint="SearchHere"
+        android:iconifiedByDefault="false"
+        android:layout_margin="20dp"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/dogRecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="#ad5"
+        android:dividerHeight="2dp"
         >
 
     </androidx.recyclerview.widget.RecyclerView>

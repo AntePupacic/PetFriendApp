@@ -75,6 +75,7 @@ public class PetDataSource {
 
 
     public boolean updatePet(int id, String name, String description, String location, String age, String phone, byte[] image){
+
         ContentValues values = new ContentValues();
         values.put(PetEntry.COLUMN_NAME, name);
         values.put(PetEntry.COLUMN_LOCATION, description);
@@ -82,7 +83,7 @@ public class PetDataSource {
         values.put(PetEntry.COLUMN_AGE, age);
         values.put(PetEntry.COLUMN_PHONE, phone);
         values.put(PetEntry.COLUMN_IMAGE, image);
-        Log.i("pasko", Integer.toString(db.update(PetEntry.TABLE_NAME, values, PetEntry._ID + "=" + id, null)));
+
         return db.update(PetEntry.TABLE_NAME, values, PetEntry._ID + "=" + id, null) > 0;
     }
 

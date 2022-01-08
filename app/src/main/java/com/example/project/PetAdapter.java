@@ -5,21 +5,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
+public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> implements Filterable {
 
     public Context myContext;
     public RecycleViewClickListener myRecycleViewClickListener;
+
+    private ArrayList<Pet> itemsFiltered = DataStorage.pets;
 
     public PetAdapter(Context context, RecycleViewClickListener recycleViewClickListener) {
         myContext = context;
@@ -50,13 +53,12 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pet_item, parent, false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.petName.setText(DataStorage.pets.get(position).getName());
-        viewHolder.petLocation.setText(DataStorage.pets.get(position).getLocation());
-        viewHolder.petAge.setText(DataStorage.pets.get(position).getAge());
-        viewHolder.petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
+        viewHolder.petName.setText(itemsFiltered.get(position).getName());
+        viewHolder.petLocation.setText(itemsFiltered.get(position).getLocation());
+        viewHolder.petAge.setText(itemsFiltered.get(position).getAge());
+        viewHolder.petImage.setImageBitmap(DbBitmapUtility.getImage(itemsFiltered.get(position).getImage()));
     }
 
     public interface RecycleViewClickListener{
@@ -65,6 +67,48 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return DataStorage.pets.size();
+        return itemsFiltered.size();
+    }
+
+    //Function to filter RecycleView items
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String query = charSequence.toString();
+
+                ArrayList<Pet> filtered = new ArrayList<Pet>();
+
+                if (query.isEmpty()) {
+                    filtered = DataStorage.pets;
+                } else {
+                    for ( int i = 0; i < DataStorage.pets.size(); i++) {
+                        if (DataStorage.pets.get(i).getName().toLowerCase().contains(query.toLowerCase())) {
+                            Pet pet = new Pet();
+                            pet.setID(DataStorage.pets.get(i).getID());
+                            pet.setName(DataStorage.pets.get(i).getName());
+                            pet.setDescription(DataStorage.pets.get(i).getDescription());
+                            pet.setLocation(DataStorage.pets.get(i).getLocation());
+                            pet.setAge(DataStorage.pets.get(i).getAge());
+                            pet.setPhone(DataStorage.pets.get(i).getPhone());
+                            pet.setImage(DataStorage.pets.get(i).getImage());
+                            filtered.add(pet);
+                        }
+                    }
+                }
+
+                FilterResults results = new FilterResults();
+                results.count = filtered.size();
+                results.values = filtered;
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults results) {
+                itemsFiltered = (ArrayList<Pet>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }

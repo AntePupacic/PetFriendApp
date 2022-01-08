@@ -75,7 +75,7 @@ public class UpdatePet extends AppCompatActivity {
         });
     }
 
-    //Getting image from Extrnal
+    //Getting image from External storage
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -103,7 +103,7 @@ public class UpdatePet extends AppCompatActivity {
         petDs = new PetDataSource(getApplicationContext());
     }
 
-    //Setting data from ArrayList into editText
+    //Inserting data from ArrayList into editText
     private void setValues(){
         editTxtPetName.setText(DataStorage.pets.get(position).getName());
         editTxtPetDescription.setText(DataStorage.pets.get(position).getDescription());
