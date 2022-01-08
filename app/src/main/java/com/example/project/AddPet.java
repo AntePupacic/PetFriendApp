@@ -97,7 +97,7 @@ public class AddPet extends AppCompatActivity {
         btnAddPet = (Button) findViewById(R.id.btnAddPet);
         btnAddImg = (Button) findViewById(R.id.btnAddImg);
         petImage = (ImageView) findViewById(R.id.petImage);
-        sdf = new SimpleDateFormat("dd.MM.yyyy. 'at' HH:mm:ss");
+        sdf = new SimpleDateFormat("MM/dd/yyyy 'at' HH:mm:ss");
         petDs = new PetDataSource(getApplicationContext());
         petDs.open();
     }
