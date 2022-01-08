@@ -7,12 +7,16 @@
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
     >
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width = "100dp"
+        android:layout_height = "100dp"
+        app:civ_border_color = "#EEEEEE"
+        app:civ_border_width = "4dp"
+        app:civ_shadow = "true"
+        app:civ_shadow_radius = "10"
+        app:civ_shadow_color = "#8BC34A"
+        android:id="@+id/petImage"/>
 
-    <ImageView
-        android:id="@+id/petImage"
-        android:layout_width="300px"
-        android:layout_height="match_parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -36,6 +40,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Age" />
+        <TextView
+            android:id="@+id/petDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date" />
 
     </LinearLayout>
 </LinearLayout>

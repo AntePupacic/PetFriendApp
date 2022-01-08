@@ -17,6 +17,7 @@ public class PetDataDBHelper extends SQLiteOpenHelper {
                     PetEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL," +
                     PetEntry.COLUMN_AGE + " TEXT NOT NULL," +
                     PetEntry.COLUMN_PHONE + " TEXT NOT NULL," +
+                    PetEntry.COLUMN_DATE + " TEXT NOT NULL," +
                     PetEntry.COLUMN_IMAGE + " BLOB)";
 
     private static final String SQL_DELETE_ENTRIES =

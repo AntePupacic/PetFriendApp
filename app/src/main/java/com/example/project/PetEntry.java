@@ -12,4 +12,5 @@ public final class PetEntry implements BaseColumns {
     public static final String COLUMN_AGE = "age";
     public static final String COLUMN_PHONE = "phone";
     public static final String COLUMN_IMAGE = "image";
+    public static final String COLUMN_DATE = "date";
 }

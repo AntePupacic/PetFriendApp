@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class UpdatePet extends AppCompatActivity {
     EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
@@ -25,6 +27,7 @@ public class UpdatePet extends AppCompatActivity {
     PetDataSource petDs;
     Integer position;
     Bitmap bitmapImg;
+    SimpleDateFormat sdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class UpdatePet extends AppCompatActivity {
                 if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone)){
                     makeToast("Nisi popunio sva polja");
                 }else{
-                    if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, petAge, petPhone, DbBitmapUtility.getBytes(bitmapImg))){
+                    if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, petAge, petPhone,sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
                         makeToast("Uspjesno promjenjen podatak u DB");
                     }else{
                         makeToast("Greska pri promjeni podatka u DB");
@@ -100,6 +103,7 @@ public class UpdatePet extends AppCompatActivity {
         btnUpdatePet = (Button) findViewById(R.id.btnUpdatePet);
         btnAddImg = (Button) findViewById(R.id.btnAddImg);
         petImage = (ImageView) findViewById(R.id.petImage);
+        sdf = new SimpleDateFormat("dd.MM.yyyy. 'at' HH:mm:ss");
         petDs = new PetDataSource(getApplicationContext());
     }
 

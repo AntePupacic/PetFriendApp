@@ -30,7 +30,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> impl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView petName, petLocation, petAge;
+        private final TextView petName, petLocation, petAge, petDate;
         private final ImageView petImage;
 
         public ViewHolder(View view){
@@ -39,6 +39,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> impl
             petName = (TextView) itemView.findViewById(R.id.petName);
             petLocation = (TextView) itemView.findViewById(R.id.petLocation);
             petAge = (TextView) itemView.findViewById(R.id.petAge);
+            petDate = (TextView)itemView.findViewById(R.id.petDate);
             view.setOnClickListener(this);
         }
 
@@ -58,6 +59,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> impl
         viewHolder.petName.setText(itemsFiltered.get(position).getName());
         viewHolder.petLocation.setText(itemsFiltered.get(position).getLocation());
         viewHolder.petAge.setText(itemsFiltered.get(position).getAge());
+        viewHolder.petDate.setText(itemsFiltered.get(position).getDate());
         viewHolder.petImage.setImageBitmap(DbBitmapUtility.getImage(itemsFiltered.get(position).getImage()));
     }
 
@@ -70,7 +72,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> impl
         return itemsFiltered.size();
     }
 
-    //Function to filter RecycleView items
+    //Function to filter RecyclerView items
     @Override
     public Filter getFilter() {
         return new Filter() {
@@ -92,6 +94,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> impl
                             pet.setLocation(DataStorage.pets.get(i).getLocation());
                             pet.setAge(DataStorage.pets.get(i).getAge());
                             pet.setPhone(DataStorage.pets.get(i).getPhone());
+                            pet.setDate(DataStorage.pets.get(i).getDate());
                             pet.setImage(DataStorage.pets.get(i).getImage());
                             filtered.add(pet);
                         }

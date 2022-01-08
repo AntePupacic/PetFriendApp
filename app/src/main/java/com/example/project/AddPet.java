@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AddPet extends AppCompatActivity {
 
@@ -27,6 +29,7 @@ public class AddPet extends AppCompatActivity {
     ImageView petImage;
     PetDataSource petDs;
     Bitmap bitmapImg;
+    SimpleDateFormat sdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +75,7 @@ public class AddPet extends AppCompatActivity {
                 if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone)){
                     makeToast("Nisi popunio sva polja");
                 }else{
-                    if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, petAge, petPhone, DbBitmapUtility.getBytes(bitmapImg))){
+                    if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, petAge, petPhone, sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
                         makeToast("Uspjesno upisan podatak u DB");
                     }else{
                         makeToast("Greska pri upisu podatka u DB");
@@ -94,6 +97,7 @@ public class AddPet extends AppCompatActivity {
         btnAddPet = (Button) findViewById(R.id.btnAddPet);
         btnAddImg = (Button) findViewById(R.id.btnAddImg);
         petImage = (ImageView) findViewById(R.id.petImage);
+        sdf = new SimpleDateFormat("dd.MM.yyyy. 'at' HH:mm:ss");
         petDs = new PetDataSource(getApplicationContext());
         petDs.open();
     }

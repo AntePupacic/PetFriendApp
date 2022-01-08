@@ -7,11 +7,15 @@
     android:orientation="vertical"
     tools:context=".PetInfo">
 
-    <ImageView
-        android:id="@+id/petImage"
-        android:layout_width="wrap_content"
-        android:layout_height="500px"
-        tools:srcCompat="@tools:sample/avatars" />
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width = "250dp"
+        android:layout_height = "250dp"
+        app:civ_border_color = "#EEEEEE"
+        app:civ_border_width = "4dp"
+        app:civ_shadow = "true"
+        app:civ_shadow_radius = "10"
+        app:civ_shadow_color = "#8BC34A"
+        android:id="@+id/petImage"/>
     <TextView
         android:id="@+id/txtViewName"
         android:layout_width="wrap_content"

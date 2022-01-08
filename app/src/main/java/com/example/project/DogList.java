@@ -13,13 +13,15 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class DogList extends AppCompatActivity {
 
     private RecyclerView dogRecycleView;
     private PetAdapter.RecycleViewClickListener listener;
-    private Button addBtn;
+    private FloatingActionButton addBtn;
     PetAdapter petAdapter;
     SearchView searchView;
 
@@ -61,7 +63,7 @@ public class DogList extends AppCompatActivity {
     }
 
     private void findViews(){
-        addBtn = (Button) findViewById(R.id.addBtn);
+        addBtn = (FloatingActionButton) findViewById(R.id.addBtn);
         searchView = (SearchView) findViewById(R.id.conatinerSearchView);
         dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
     }

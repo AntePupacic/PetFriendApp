@@ -30,7 +30,7 @@ public class PetDataSource {
         db.close();
     }
 
-    public boolean addPetDetailsToDB(String name, String description, String location, String age, String phone, byte[] image){
+    public boolean addPetDetailsToDB(String name, String description, String location, String age, String phone, String date, byte[] image){
 
         ContentValues values = new ContentValues();
         values.put(PetEntry.COLUMN_NAME, name);
@@ -38,6 +38,7 @@ public class PetDataSource {
         values.put(PetEntry.COLUMN_DESCRIPTION, location);
         values.put(PetEntry.COLUMN_AGE, age);
         values.put(PetEntry.COLUMN_PHONE, phone);
+        values.put(PetEntry.COLUMN_DATE, date);
         values.put(PetEntry.COLUMN_IMAGE, image);
 
         long result = db.insert(PetEntry.TABLE_NAME, null, values);
@@ -61,7 +62,8 @@ public class PetDataSource {
             pet.setLocation(cursor.getString(3));
             pet.setAge(cursor.getString(4));
             pet.setPhone(cursor.getString(5));
-            pet.setImage(cursor.getBlob(6));
+            pet.setDate(cursor.getString(6));
+            pet.setImage(cursor.getBlob(7));
             pets.add(pet);
             cursor.moveToNext();
         }
@@ -74,14 +76,14 @@ public class PetDataSource {
     }
 
 
-    public boolean updatePet(int id, String name, String description, String location, String age, String phone, byte[] image){
-
+    public boolean updatePet(int id, String name, String description, String location, String age, String phone, String date, byte[] image){
         ContentValues values = new ContentValues();
         values.put(PetEntry.COLUMN_NAME, name);
         values.put(PetEntry.COLUMN_LOCATION, description);
         values.put(PetEntry.COLUMN_DESCRIPTION, location);
         values.put(PetEntry.COLUMN_AGE, age);
         values.put(PetEntry.COLUMN_PHONE, phone);
+        values.put(PetEntry.COLUMN_DATE, date);
         values.put(PetEntry.COLUMN_IMAGE, image);
 
         return db.update(PetEntry.TABLE_NAME, values, PetEntry._ID + "=" + id, null) > 0;

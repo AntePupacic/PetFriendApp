@@ -9,8 +9,16 @@ public class Pet {
     private String description;
     private String age;
     private String phone;
+    private String date;
     private byte[] image;
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public int getID() {
         return ID;
