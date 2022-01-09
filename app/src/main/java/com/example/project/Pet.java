@@ -7,8 +7,8 @@ public class Pet {
     private String name;
     private String location;
     private String description;
-    private String age;
-    private String phone;
+    private Integer age;
+    private Integer phone;
     private String date;
     private byte[] image;
 
@@ -52,19 +52,19 @@ public class Pet {
         this.description = description;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public String getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 

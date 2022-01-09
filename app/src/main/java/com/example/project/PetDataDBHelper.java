@@ -15,8 +15,8 @@ public class PetDataDBHelper extends SQLiteOpenHelper {
                     PetEntry.COLUMN_NAME + " TEXT NOT NULL," +
                     PetEntry.COLUMN_LOCATION + " TEXT NOT NULL," +
                     PetEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL," +
-                    PetEntry.COLUMN_AGE + " TEXT NOT NULL," +
-                    PetEntry.COLUMN_PHONE + " TEXT NOT NULL," +
+                    PetEntry.COLUMN_AGE + " INTEGER NOT NULL," +
+                    PetEntry.COLUMN_PHONE + " INTEGER NOT NULL," +
                     PetEntry.COLUMN_DATE + " TEXT NOT NULL," +
                     PetEntry.COLUMN_IMAGE + " BLOB)";
 

@@ -55,7 +55,7 @@ public class UpdatePet extends AppCompatActivity {
                 if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone)){
                     makeToast("Nisi popunio sva polja");
                 }else{
-                    if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, petAge, petPhone,sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
+                    if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, Integer.valueOf(petAge), Integer.valueOf(petPhone),sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
                         makeToast("Uspjesno promjenjen podatak u DB");
                     }else{
                         makeToast("Greska pri promjeni podatka u DB");
@@ -112,8 +112,8 @@ public class UpdatePet extends AppCompatActivity {
         editTxtPetName.setText(DataStorage.pets.get(position).getName());
         editTxtPetDescription.setText(DataStorage.pets.get(position).getDescription());
         editTxtLocation.setText(DataStorage.pets.get(position).getLocation());
-        editTxtAge.setText(DataStorage.pets.get(position).getAge());
-        editTxtPhone.setText(DataStorage.pets.get(position).getPhone());
+        editTxtAge.setText(String.valueOf(DataStorage.pets.get(position).getAge()));
+        editTxtPhone.setText(String.valueOf(DataStorage.pets.get(position).getPhone()));
         petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
         bitmapImg = DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage());
 

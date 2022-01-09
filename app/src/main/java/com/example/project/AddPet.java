@@ -75,7 +75,7 @@ public class AddPet extends AppCompatActivity {
                 if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone)){
                     makeToast("Nisi popunio sva polja");
                 }else{
-                    if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, petAge, petPhone, sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
+                    if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, Integer.valueOf(petAge), Integer.valueOf(petPhone), sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
                         makeToast("Uspjesno upisan podatak u DB");
                     }else{
                         makeToast("Greska pri upisu podatka u DB");

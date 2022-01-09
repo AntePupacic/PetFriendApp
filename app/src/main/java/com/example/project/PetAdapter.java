@@ -58,7 +58,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> impl
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         viewHolder.petName.setText(itemsFiltered.get(position).getName());
         viewHolder.petLocation.setText(itemsFiltered.get(position).getLocation());
-        viewHolder.petAge.setText(itemsFiltered.get(position).getAge());
+        viewHolder.petAge.setText(String.valueOf(itemsFiltered.get(position).getAge()));
         viewHolder.petDate.setText(itemsFiltered.get(position).getDate());
         viewHolder.petImage.setImageBitmap(DbBitmapUtility.getImage(itemsFiltered.get(position).getImage()));
     }

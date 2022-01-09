@@ -59,9 +59,9 @@ public class PetInfo extends AppCompatActivity {
         txtViewName.setText(DataStorage.pets.get(position).getName());
         txtViewDes.setText(DataStorage.pets.get(position).getDescription());
         txtViewLoc.setText(DataStorage.pets.get(position).getLocation());
-        txtViewAge.setText(DataStorage.pets.get(position).getAge());
+        txtViewAge.setText(String.valueOf(DataStorage.pets.get(position).getAge()));
         petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
-        btnPhoneCall.setText("CALL " + DataStorage.pets.get(position).getPhone());
+        btnPhoneCall.setText("CALL " + String.valueOf(DataStorage.pets.get(position).getPhone()));
     }
 
     private void makePhoneCall(){
@@ -95,7 +95,7 @@ public class PetInfo extends AppCompatActivity {
                 }
 
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:" + DataStorage.pets.get(position).getPhone()));
+                callIntent.setData(Uri.parse("tel:" + String.valueOf(DataStorage.pets.get(position).getPhone())));
                 startActivity(callIntent);
 
             }
