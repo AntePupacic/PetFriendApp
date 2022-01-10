@@ -52,7 +52,7 @@ public class UpdatePetActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 getPetDetails();
-                if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone)){
+                if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone) || (bitmapImg == null)){
                     makeToast("Nisi popunio sva polja");
                 }else{
                     if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, Integer.valueOf(petAge), Integer.valueOf(petPhone),sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){

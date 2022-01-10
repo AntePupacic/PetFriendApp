@@ -38,6 +38,7 @@ public class AddPetActivity extends AppCompatActivity {
         findViews();
         addImg();
         addDataToDB();
+
     }
 
     private void addImg(){
@@ -71,7 +72,7 @@ public class AddPetActivity extends AppCompatActivity {
 
                 getPetDetails();
 
-                if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone)){
+                if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone) || (bitmapImg == null)){
                     makeToast("Nisi popunio sva polja");
                 }else{
                     if(petDs.addPetDetailsToDB(petName, petDescription, petLocation, Integer.valueOf(petAge), Integer.valueOf(petPhone), sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
