@@ -19,11 +19,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UpdatePet extends AppCompatActivity {
+public class UpdatePetActivity extends AppCompatActivity {
     EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
     String petName, petDescription, petLocation, petAge, petPhone;
-    Button btnUpdatePet, btnAddImg;
-    ImageView petImage;
+    Button btnUpdatePet;
+    ImageView petImage, btnAddImg;
     PetDataSource petDs;
     Integer position;
     Bitmap bitmapImg;
@@ -61,7 +61,7 @@ public class UpdatePet extends AppCompatActivity {
                         makeToast("Greska pri promjeni podatka u DB");
                     }
                     petDs.close();
-                    Intent intent = new Intent(UpdatePet.this, DogList.class);
+                    Intent intent = new Intent(UpdatePetActivity.this, DogListActivity.class);
                     startActivity(intent);
                 }
             }
@@ -101,7 +101,7 @@ public class UpdatePet extends AppCompatActivity {
         editTxtAge = (EditText) findViewById(R.id.editTxtAge);
         editTxtPhone = (EditText) findViewById(R.id.editTxtPhone);
         btnUpdatePet = (Button) findViewById(R.id.btnUpdatePet);
-        btnAddImg = (Button) findViewById(R.id.btnAddImg);
+        btnAddImg = (ImageView) findViewById(R.id.btnAddImg);
         petImage = (ImageView) findViewById(R.id.petImage);
         sdf = new SimpleDateFormat("MM/dd/yyyy 'at' HH:mm:ss");
         petDs = new PetDataSource(getApplicationContext());

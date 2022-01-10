@@ -1,67 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AddPet">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".AddPetActivity">
 
 
-    <EditText
-        android:id="@+id/editTxtPetName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Pet Name"/>
 
-    <EditText
-        android:id="@+id/editTxtPetDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Pet Description"/>
 
-    <EditText
-        android:id="@+id/editTxtLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Pet Location"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update pet"
+            android:textSize="40sp"
+            android:layout_marginLeft="100dp"/>
 
-    <EditText
-        android:id="@+id/editTxtAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Pet Age"/>
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width = "150dp"
+            android:layout_height = "150dp"
+            app:civ_border_color = "#EEEEEE"
+            app:civ_border_width = "4dp"
+            app:civ_shadow = "true"
+            app:civ_shadow_radius = "10"
+            app:civ_shadow_color = "#8BC34A"
+            android:layout_marginLeft="300px"
+            android:id="@+id/petImage"/>
 
-    <EditText
-        android:id="@+id/editTxtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Contact Number"/>
 
-    <ImageView
-        android:id="@+id/petImage"
-        android:layout_width="wrap_content"
-        android:layout_height="500px"/>
-    <Button
-        android:id="@+id/btnAddImg"
-        android:text="ADD IMAGE"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btnUpdatePet"
-        android:text="UPDATE PET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/editTxtPetName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Pet Name"/>
+
+            <EditText
+                android:id="@+id/editTxtPetDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Pet Description"/>
+
+            <EditText
+                android:id="@+id/editTxtLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Pet Location"/>
+
+            <EditText
+                android:id="@+id/editTxtAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Pet Age"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/editTxtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Contact Number"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add image: "
+                android:textSize="20sp"/>
+            <ImageView
+                android:id="@+id/btnAddImg"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@drawable/add_image"/>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnUpdatePet"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="100dp"
+            android:background="@drawable/rounded_corner"
+            android:text="UPDATE PET"
+            android:textSize="20dp"
+            android:textColor="@android:color/white" />
 
 
 </LinearLayout>
+
+

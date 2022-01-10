@@ -9,19 +9,16 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PetInfo extends AppCompatActivity {
+public class PetInfoActivity extends AppCompatActivity {
 
-    TextView txtViewName, txtViewDes, txtViewLoc, txtViewAge;
-    ImageView petImage;
-    Button btnPhoneCall, btnDeletePet, btnUpdatePet;
+    TextView txtViewName, txtViewDes, txtViewLoc, txtViewAge, txtPhoneCall;
+    ImageView petImage, btnPhoneCall, btnDeletePet, btnUpdatePet;
     Integer position;
     PetDataSource petDs;
 
@@ -48,9 +45,10 @@ public class PetInfo extends AppCompatActivity {
         txtViewDes = (TextView) findViewById(R.id.txtViewDes);
         txtViewLoc = (TextView) findViewById(R.id.txtViewLoc);
         txtViewAge = (TextView) findViewById(R.id.txtViewAge);
-        btnPhoneCall = (Button) findViewById(R.id.btnCallPhone);
-        btnDeletePet = (Button) findViewById(R.id.btnDeletePet);
-        btnUpdatePet = (Button) findViewById(R.id.btnUpdatePet);
+        txtPhoneCall = (TextView) findViewById(R.id.txtCallPhone);
+        btnPhoneCall = (ImageView) findViewById(R.id.btnCallPhone);
+        btnDeletePet = (ImageView) findViewById(R.id.btnDeletePet);
+        btnUpdatePet = (ImageView) findViewById(R.id.btnUpdatePet);
         petImage = (ImageView) findViewById(R.id.petImage);
         petDs = new PetDataSource(getApplicationContext());
     }
@@ -61,7 +59,7 @@ public class PetInfo extends AppCompatActivity {
         txtViewLoc.setText(DataStorage.pets.get(position).getLocation());
         txtViewAge.setText(String.valueOf(DataStorage.pets.get(position).getAge()));
         petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
-        btnPhoneCall.setText("CALL " + String.valueOf(DataStorage.pets.get(position).getPhone()));
+        txtPhoneCall.setText("CALL: " + String.valueOf(DataStorage.pets.get(position).getPhone()));
     }
 
     private void makePhoneCall(){
@@ -90,7 +88,7 @@ public class PetInfo extends AppCompatActivity {
             if(Build.VERSION.SDK_INT > 22)
             {
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(PetInfo.this, new String[]{Manifest.permission.CALL_PHONE}, 101);
+                    ActivityCompat.requestPermissions(PetInfoActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 101);
                     return;
                 }
 
@@ -118,7 +116,7 @@ public class PetInfo extends AppCompatActivity {
                 if(petDs.deletePet(DataStorage.pets.get(position).getID())){
                     petDs.close();
                     Toast.makeText(getApplicationContext(), "Uspješno izbrisan podatak iz DB", Toast.LENGTH_SHORT).show();
-                    Intent dogIntent = new Intent(PetInfo.this, DogList.class);
+                    Intent dogIntent = new Intent(PetInfoActivity.this, DogListActivity.class);
                     startActivity(dogIntent);
                 }else{
                     Toast.makeText(getApplicationContext(), "Greška pri brisanju podatka iz DB", Toast.LENGTH_SHORT).show();
@@ -131,7 +129,7 @@ public class PetInfo extends AppCompatActivity {
         btnUpdatePet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PetInfo.this, UpdatePet.class);
+                Intent intent = new Intent(PetInfoActivity.this, UpdatePetActivity.class);
                 intent.putExtra("Position", position);
                 startActivity(intent);
             }

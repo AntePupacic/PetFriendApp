@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         dogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent dogIntent = new Intent(MainActivity.this, DogList.class);
+                Intent dogIntent = new Intent(MainActivity.this, DogListActivity.class);
                 startActivity(dogIntent);
             }
         });

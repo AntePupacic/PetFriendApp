@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,13 +19,13 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AddPet extends AppCompatActivity {
+public class AddPetActivity extends AppCompatActivity {
 
 
     EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
-    Button btnAddPet, btnAddImg;
+    Button btnAddPet;
     String petName, petDescription, petLocation, petAge, petPhone;
-    ImageView petImage;
+    ImageView petImage, btnAddImg;
     PetDataSource petDs;
     Bitmap bitmapImg;
     SimpleDateFormat sdf;
@@ -81,7 +80,7 @@ public class AddPet extends AppCompatActivity {
                         makeToast("Greska pri upisu podatka u DB");
                     }
                     petDs.close();
-                    Intent intent = new Intent(AddPet.this, DogList.class);
+                    Intent intent = new Intent(AddPetActivity.this, DogListActivity.class);
                     startActivity(intent);
                 }
             }
@@ -95,7 +94,7 @@ public class AddPet extends AppCompatActivity {
         editTxtAge = (EditText) findViewById(R.id.editTxtAge);
         editTxtPhone = (EditText) findViewById(R.id.editTxtPhone);
         btnAddPet = (Button) findViewById(R.id.btnAddPet);
-        btnAddImg = (Button) findViewById(R.id.btnAddImg);
+        btnAddImg = (ImageView) findViewById(R.id.btnAddImg);
         petImage = (ImageView) findViewById(R.id.petImage);
         sdf = new SimpleDateFormat("MM/dd/yyyy 'at' HH:mm:ss");
         petDs = new PetDataSource(getApplicationContext());

@@ -20,16 +20,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
-            android:name=".UpdatePet"
+            android:name=".UpdatePetActivity"
             android:exported="false" />
         <activity
-            android:name=".AddPet"
+            android:name=".AddPetActivity"
             android:exported="false" />
         <activity
-            android:name=".PetInfo"
+            android:name=".PetInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".DogList"
+            android:name=".DogListActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
