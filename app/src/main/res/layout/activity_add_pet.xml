@@ -23,7 +23,7 @@
         app:civ_shadow = "true"
         app:civ_shadow_radius = "10"
         app:civ_shadow_color = "#8BC34A"
-        android:layout_marginLeft="300px"
+        android:layout_marginLeft="120dp"
         android:id="@+id/petImage"/>
 
 

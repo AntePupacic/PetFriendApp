@@ -17,8 +17,9 @@ import android.widget.Toast;
 public class PetInfoActivity extends AppCompatActivity {
 
     TextView txtViewName, txtViewDes, txtViewLoc, txtViewAge, txtPhoneCall;
-    ImageView petImage, btnPhoneCall, btnDeletePet, btnUpdatePet;
+    ImageView petImage, btnPhoneCall, btnDeletePet, btnUpdatePet, btnGoogleMap;
     Integer position;
+    String uri= "geo:0,0?q=";
     PetDataSource petDs;
 
     @Override
@@ -37,6 +38,7 @@ public class PetInfoActivity extends AppCompatActivity {
         makePhoneCall();
         deletePet();
         updatePet();
+        showGoogleMaps();
     }
 
     private void findViews(){
@@ -48,6 +50,7 @@ public class PetInfoActivity extends AppCompatActivity {
         btnPhoneCall = (ImageView) findViewById(R.id.btnCallPhone);
         btnDeletePet = (ImageView) findViewById(R.id.btnDeletePet);
         btnUpdatePet = (ImageView) findViewById(R.id.btnUpdatePet);
+        btnGoogleMap = (ImageView) findViewById(R.id.btnGoogleMap);
         petImage = (ImageView) findViewById(R.id.petImage);
         petDs = new PetDataSource(getApplicationContext());
     }
@@ -59,6 +62,20 @@ public class PetInfoActivity extends AppCompatActivity {
         txtViewAge.setText(String.valueOf(DataStorage.pets.get(position).getAge()));
         petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
         txtPhoneCall.setText("CALL: " + String.valueOf(DataStorage.pets.get(position).getPhone()));
+    }
+
+    private void showGoogleMaps(){
+        btnGoogleMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse(uri + DataStorage.pets.get(position).getLocation());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                if(mapIntent.resolveActivity(getPackageManager()) != null){
+                    startActivity(mapIntent);
+                }
+            }
+        });
     }
 
     private void makePhoneCall(){

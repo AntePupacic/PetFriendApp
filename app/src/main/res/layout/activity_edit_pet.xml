@@ -74,26 +74,6 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add image: "
-                android:textSize="20sp"/>
-            <ImageView
-                android:id="@+id/btnAddImg"
-                android:layout_width="80px"
-                android:layout_height="80px"
-                android:src="@drawable/add_image"/>
-
-
-        </LinearLayout>
-
         <Button
             android:id="@+id/btnUpdatePet"
             android:layout_width="200dp"

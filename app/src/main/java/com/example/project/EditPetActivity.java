@@ -69,7 +69,7 @@ public class EditPetActivity extends AppCompatActivity {
     }
 
     private void addImg(){
-        btnAddImg.setOnClickListener(new View.OnClickListener() {
+        petImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
