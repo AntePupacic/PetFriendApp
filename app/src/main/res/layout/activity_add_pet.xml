@@ -104,7 +104,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginLeft="100dp"
         android:background="@drawable/rounded_corner"
-        android:text="ADD PET"
+        android:text="SAVE"
         android:textSize="20dp"
         android:textColor="@android:color/white" />
 
