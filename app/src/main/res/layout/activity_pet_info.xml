@@ -1,191 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PetInfoActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".PetInfoActivity">
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pet Info"
+            android:textSize="40sp"
+            android:layout_marginLeft="120dp"/>
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width = "250dp"
+            android:layout_height = "250dp"
+            app:civ_border_color = "#EEEEEE"
+            app:civ_border_width = "4dp"
+            app:civ_shadow = "true"
+            app:civ_shadow_radius = "10"
+            app:civ_shadow_color = "#8BC34A"
+            android:id="@+id/petImage"
+            android:layout_marginLeft="200px"
+            android:layout_marginBottom="20dp"/>
+
 
         <LinearLayout
+            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pet Info"
-                android:textSize="40sp"
-                android:layout_marginLeft="120dp"/>
-
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:layout_width = "250dp"
-                android:layout_height = "250dp"
-                app:civ_border_color = "#EEEEEE"
-                app:civ_border_width = "4dp"
-                app:civ_shadow = "true"
-                app:civ_shadow_radius = "10"
-                app:civ_shadow_color = "#8BC34A"
-                android:id="@+id/petImage"
-                android:layout_marginLeft="200px"
-                android:layout_marginBottom="20dp"/>
-
-
-            <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Name: "
-                    android:textSize="20sp"/>
-                <TextView
-                    android:id="@+id/txtViewName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="20sp"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Description: "
-                    android:textSize="20sp"/>
-                <TextView
-                    android:id="@+id/txtViewDes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="20sp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Location: "
-                    android:textSize="20sp"/>
-
-                <TextView
-                    android:id="@+id/txtViewLoc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="20sp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Age: "
-                    android:textSize="20sp"/>
-
-
-                <TextView
-                    android:id="@+id/txtViewAge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="20sp"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/txtCallPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="25sp"/>
-
-
-                <ImageView
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/btnCallPhone"
-                    android:layout_width="80px"
-                    android:layout_height="80px"
-                    android:src="@drawable/telephone"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DELETE: "
-                    android:textSize="25sp"/>
-
-
-                <ImageView
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/btnDeletePet"
-                    android:layout_width="80px"
-                    android:layout_height="80px"
-                    android:src="@drawable/delete"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EDIT: "
-                    android:textSize="25sp"/>
-
-
-                <ImageView
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/btnUpdatePet"
-                    android:layout_width="80px"
-                    android:layout_height="80px"
-                    android:src="@drawable/edit"/>
-
-            </LinearLayout>
+                android:text="Name: "
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/txtViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"/>
 
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description: "
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/txtViewDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location: "
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtViewLoc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age: "
+                android:textSize="20sp"/>
 
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/txtViewAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtCallPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="25sp"/>
+
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/btnCallPhone"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@drawable/telephone"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DELETE: "
+                android:textSize="25sp"/>
+
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/btnDeletePet"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@drawable/delete"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EDIT: "
+                android:textSize="25sp"/>
+
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/btnUpdatePet"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@drawable/edit"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
