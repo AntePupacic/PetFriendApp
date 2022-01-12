@@ -23,7 +23,7 @@ public class EditPetActivity extends AppCompatActivity {
     EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
     String petName, petDescription, petLocation, petAge, petPhone;
     Button btnUpdatePet;
-    ImageView petImage, btnAddImg;
+    ImageView petImage;
     PetDataSource petDs;
     Integer position;
     Bitmap bitmapImg;
@@ -101,7 +101,6 @@ public class EditPetActivity extends AppCompatActivity {
         editTxtAge = (EditText) findViewById(R.id.editTxtAge);
         editTxtPhone = (EditText) findViewById(R.id.editTxtPhone);
         btnUpdatePet = (Button) findViewById(R.id.btnUpdatePet);
-        btnAddImg = (ImageView) findViewById(R.id.btnAddImg);
         petImage = (ImageView) findViewById(R.id.petImage);
         sdf = new SimpleDateFormat("MM/dd/yyyy 'at' HH:mm:ss");
         petDs = new PetDataSource(getApplicationContext());
