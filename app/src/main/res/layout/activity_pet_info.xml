@@ -115,6 +115,7 @@
 
 
             <LinearLayout
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -124,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textSize="20sp"/>
+                    android:textSize="25sp"/>
 
 
                 <ImageView
@@ -146,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DELETE: "
-                    android:textSize="20sp"/>
+                    android:textSize="25sp"/>
 
 
                 <ImageView
@@ -167,8 +168,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UPDATE: "
-                    android:textSize="20sp"/>
+                    android:text="EDIT: "
+                    android:textSize="25sp"/>
 
 
                 <ImageView
@@ -176,7 +177,7 @@
                     android:id="@+id/btnUpdatePet"
                     android:layout_width="80px"
                     android:layout_height="80px"
-                    android:src="@drawable/updated"/>
+                    android:src="@drawable/edit"/>
 
             </LinearLayout>
 

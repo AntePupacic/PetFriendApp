@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -129,7 +128,7 @@ public class PetInfoActivity extends AppCompatActivity {
         btnUpdatePet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PetInfoActivity.this, UpdatePetActivity.class);
+                Intent intent = new Intent(PetInfoActivity.this, EditPetActivity.class);
                 intent.putExtra("Position", position);
                 startActivity(intent);
             }

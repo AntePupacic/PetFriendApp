@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
-            android:name=".UpdatePetActivity"
+            android:name=".EditPetActivity"
             android:exported="false" />
         <activity
             android:name=".AddPetActivity"

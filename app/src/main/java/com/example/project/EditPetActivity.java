@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UpdatePetActivity extends AppCompatActivity {
+public class EditPetActivity extends AppCompatActivity {
     EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
     String petName, petDescription, petLocation, petAge, petPhone;
     Button btnUpdatePet;
@@ -32,7 +32,7 @@ public class UpdatePetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_pet);
+        setContentView(R.layout.activity_edit_pet);
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
@@ -61,7 +61,7 @@ public class UpdatePetActivity extends AppCompatActivity {
                         makeToast("Greska pri promjeni podatka u DB");
                     }
                     petDs.close();
-                    Intent intent = new Intent(UpdatePetActivity.this, DogListActivity.class);
+                    Intent intent = new Intent(EditPetActivity.this, DogListActivity.class);
                     startActivity(intent);
                 }
             }
