@@ -61,7 +61,7 @@ public class EditPetActivity extends AppCompatActivity {
                         makeToast("Greska pri promjeni podatka u DB");
                     }
                     petDs.close();
-                    Intent intent = new Intent(EditPetActivity.this, DogListActivity.class);
+                    Intent intent = new Intent(EditPetActivity.this, PetListActivity.class);
                     startActivity(intent);
                 }
             }

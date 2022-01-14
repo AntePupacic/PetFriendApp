@@ -20,10 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
-            android:name=".Register"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".EditPetActivity"
@@ -35,10 +32,10 @@
             android:name=".PetInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".DogListActivity"
+            android:name=".PetListActivity"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

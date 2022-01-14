@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Register extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     Button btn2_signup;
     EditText user_name, pass_word;
     FirebaseAuth mAuth;
@@ -29,6 +29,7 @@ public class Register extends AppCompatActivity {
         pass_word=findViewById(R.id.password1);
         btn2_signup=findViewById(R.id.sign);
         mAuth=FirebaseAuth.getInstance();
+
         btn2_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,13 +64,15 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-                            Toast.makeText(Register.this,"You are successfully Registered", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"You are successfully Registered", Toast.LENGTH_SHORT).show();
                             user_name.setText("");
                             pass_word.setText("");
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
                         }
                         else
                         {
-                            Toast.makeText(Register.this,"You are not Registered! Try again",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"You are not Registered! Try again",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

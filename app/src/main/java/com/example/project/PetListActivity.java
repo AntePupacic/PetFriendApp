@@ -12,18 +12,18 @@ import android.widget.SearchView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class DogListActivity extends AppCompatActivity {
+public class PetListActivity extends AppCompatActivity {
 
     private RecyclerView dogRecycleView;
     private PetAdapter.RecycleViewClickListener listener;
-    private FloatingActionButton addBtn;
+    private FloatingActionButton addBtn, logoutBtn;
     PetAdapter petAdapter;
     SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dog_list);
+        setContentView(R.layout.activity_pet_list);
 
 
         DataStorage.fillData(getApplicationContext());
@@ -38,7 +38,19 @@ public class DogListActivity extends AppCompatActivity {
         dogRecycleView.setAdapter(petAdapter);
 
         searchRecycleView();
+        logout();
 
+    }
+
+
+    private void logout(){
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PetListActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void searchRecycleView(){
@@ -59,6 +71,7 @@ public class DogListActivity extends AppCompatActivity {
 
     private void findViews(){
         addBtn = (FloatingActionButton) findViewById(R.id.addBtn);
+        logoutBtn = (FloatingActionButton) findViewById(R.id.logoutBtn);
         searchView = (SearchView) findViewById(R.id.conatinerSearchView);
         dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
     }
@@ -67,7 +80,7 @@ public class DogListActivity extends AppCompatActivity {
         listener = new PetAdapter.RecycleViewClickListener() {
             @Override
             public void onClick(View v, int position) {
-                Intent intent = new Intent(DogListActivity.this, PetInfoActivity.class);
+                Intent intent = new Intent(PetListActivity.this, PetInfoActivity.class);
                 intent.putExtra("Position", position);
                 startActivity(intent);
             }
@@ -79,7 +92,7 @@ public class DogListActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DogListActivity.this, AddPetActivity.class);
+                Intent intent = new Intent(PetListActivity.this, AddPetActivity.class);
                 startActivity(intent);
             }
         });
