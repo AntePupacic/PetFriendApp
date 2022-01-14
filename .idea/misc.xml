@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/abako/Desktop/Dagelic/Project/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/abako/Desktop/Dagelic/Project/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/drawable/border.xml" value="0.13802083333333334" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/drawable/rounded_corner.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/activity_add_pet.xml" value="0.264" />
