@@ -55,7 +55,7 @@ public class EditPetActivity extends AppCompatActivity {
                 if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone) || (bitmapImg == null)){
                     makeToast("Nisi popunio sva polja");
                 }else{
-                    if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, Integer.valueOf(petAge), Integer.valueOf(petPhone),sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
+                    if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, Integer.valueOf(petAge), petPhone,sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
                         makeToast("Uspjesno promjenjen podatak u DB");
                     }else{
                         makeToast("Greska pri promjeni podatka u DB");

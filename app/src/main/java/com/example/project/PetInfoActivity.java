@@ -61,7 +61,7 @@ public class PetInfoActivity extends AppCompatActivity {
         txtViewLoc.setText(DataStorage.pets.get(position).getLocation());
         txtViewAge.setText(String.valueOf(DataStorage.pets.get(position).getAge()));
         petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
-        txtPhoneCall.setText("CALL: " + String.valueOf(DataStorage.pets.get(position).getPhone()));
+        txtPhoneCall.setText("CALL: " + DataStorage.pets.get(position).getPhone());
     }
 
     private void showGoogleMaps(){
@@ -109,7 +109,7 @@ public class PetInfoActivity extends AppCompatActivity {
                 }
 
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:" + String.valueOf(DataStorage.pets.get(position).getPhone())));
+                callIntent.setData(Uri.parse("tel:" + DataStorage.pets.get(position).getPhone()));
                 startActivity(callIntent);
 
             }

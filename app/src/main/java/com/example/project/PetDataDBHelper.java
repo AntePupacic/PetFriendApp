@@ -16,9 +16,9 @@ public class PetDataDBHelper extends SQLiteOpenHelper {
                     PetEntry.COLUMN_LOCATION + " TEXT NOT NULL," +
                     PetEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL," +
                     PetEntry.COLUMN_AGE + " INTEGER NOT NULL," +
-                    PetEntry.COLUMN_PHONE + " INTEGER NOT NULL," +
+                    PetEntry.COLUMN_PHONE + " TEXT NOT NULL," +
                     PetEntry.COLUMN_DATE + " TEXT NOT NULL," +
-                    PetEntry.COLUMN_IMAGE + " BLOB)";
+                    PetEntry.COLUMN_IMAGE + " BLOB NOT NULL)";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + PetEntry.TABLE_NAME;
