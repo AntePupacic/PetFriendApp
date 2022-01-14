@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText user_name, pass_word;
+    private Button btn_login, btn_sign;
     FirebaseAuth mAuth;
 
     @Override
@@ -20,11 +21,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        user_name=findViewById(R.id.email);
-        pass_word=findViewById(R.id.password);
-        Button btn_login = findViewById(R.id.btn_login);
-        Button btn_sign = findViewById(R.id.btn_signup);
+        user_name= findViewById(R.id.email);
+        pass_word= findViewById(R.id.password);
+        btn_login =  findViewById(R.id.btn_login);
+        btn_sign = findViewById(R.id.btn_signup);
+
         mAuth=FirebaseAuth.getInstance();
+
         btn_login.setOnClickListener(v -> {
             String email= user_name.getText().toString().trim();
             String password=pass_word.getText().toString().trim();

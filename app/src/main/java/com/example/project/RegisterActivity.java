@@ -25,9 +25,11 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         user_name=findViewById(R.id.username);
         pass_word=findViewById(R.id.password1);
         btn2_signup=findViewById(R.id.sign);
+
         mAuth=FirebaseAuth.getInstance();
 
         btn2_signup.setOnClickListener(new View.OnClickListener() {
