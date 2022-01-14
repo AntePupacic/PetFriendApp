@@ -81,7 +81,7 @@ public class AddPetActivity extends AppCompatActivity {
                         makeToast("Greska pri upisu podatka u DB");
                     }
                     petDs.close();
-                    Intent intent = new Intent(AddPetActivity.this, DogListActivity.class);
+                    Intent intent = new Intent(AddPetActivity.this, PetListActivity.class);
                     startActivity(intent);
                 }
             }

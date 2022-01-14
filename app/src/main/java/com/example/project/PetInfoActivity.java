@@ -132,7 +132,7 @@ public class PetInfoActivity extends AppCompatActivity {
                 if(petDs.deletePet(DataStorage.pets.get(position).getID())){
                     petDs.close();
                     Toast.makeText(getApplicationContext(), "Uspješno izbrisan podatak iz DB", Toast.LENGTH_SHORT).show();
-                    Intent dogIntent = new Intent(PetInfoActivity.this, DogListActivity.class);
+                    Intent dogIntent = new Intent(PetInfoActivity.this, PetListActivity.class);
                     startActivity(dogIntent);
                 }else{
                     Toast.makeText(getApplicationContext(), "Greška pri brisanju podatka iz DB", Toast.LENGTH_SHORT).show();

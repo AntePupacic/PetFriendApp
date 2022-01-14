@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText user_name, pass_word;
     FirebaseAuth mAuth;
 
@@ -19,6 +19,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         user_name=findViewById(R.id.email);
         pass_word=findViewById(R.id.password);
         Button btn_login = findViewById(R.id.btn_login);
@@ -56,18 +57,18 @@ public class Login extends AppCompatActivity {
                 {
                     user_name.setText("");
                     pass_word.setText("");
-                    startActivity(new Intent(Login.this, MainActivity.class));
+                    startActivity(new Intent(LoginActivity.this, PetListActivity.class));
                 }
                 else
                 {
-                    Toast.makeText(Login.this,
+                    Toast.makeText(LoginActivity.this,
                             "Please Check Your login Credentials",
                             Toast.LENGTH_SHORT).show();
                 }
 
             });
         });
-        btn_sign.setOnClickListener(v -> startActivity(new Intent(Login.this,Register.class )));
+        btn_sign.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class )));
     }
 
 }
