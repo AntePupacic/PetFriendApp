@@ -13,17 +13,18 @@
         android:layout_height="wrap_content"
         android:text="Add pet"
         android:textSize="40sp"
-        android:layout_marginLeft="120dp"/>
+        android:layout_marginLeft="20px"
+        />
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:layout_width = "150dp"
         android:layout_height = "150dp"
         app:civ_border_color = "#EEEEEE"
         app:civ_border_width = "4dp"
+        android:layout_gravity="center"
         app:civ_shadow = "true"
         app:civ_shadow_radius = "10"
         app:civ_shadow_color = "#8BC34A"
-        android:layout_marginLeft="120dp"
         android:id="@+id/petImage"/>
 
 

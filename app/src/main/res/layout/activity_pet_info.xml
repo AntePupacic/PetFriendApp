@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             android:text="Pet Info"
             android:textSize="40sp"
-            android:layout_marginLeft="120dp"/>
+            android:layout_marginLeft="20px"
+            />
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:layout_width = "250dp"
@@ -28,7 +29,7 @@
             app:civ_shadow_radius = "10"
             app:civ_shadow_color = "#8BC34A"
             android:id="@+id/petImage"
-            android:layout_marginLeft="200px"
+            android:layout_gravity="center"
             android:layout_marginBottom="20dp"/>
 
 
