@@ -1,7 +1,5 @@
 package com.example.project;
 
-import android.graphics.Bitmap;
-
 public class Pet {
     private int ID;
     private String name;
