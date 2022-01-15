@@ -41,7 +41,6 @@ public class EditPetActivity extends AppCompatActivity {
         if(extras != null){
             id = extras.getInt("id");
             pet = DataStorage.getPetById(id);
-
         }
 
 
@@ -120,7 +119,6 @@ public class EditPetActivity extends AppCompatActivity {
         editTxtPhone.setText(String.valueOf(pet.getPhone()));
         petImage.setImageBitmap(DbBitmapUtility.getImage(pet.getImage()));
         bitmapImg = DbBitmapUtility.getImage(pet.getImage());
-
     }
 
     //Get all pet data from user
