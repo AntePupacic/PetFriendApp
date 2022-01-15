@@ -76,14 +76,16 @@ public class PetDataSource {
 
 
     public boolean updatePet(int id, String name, String description, String location, Integer age, String phone, String date, byte[] image){
+
         ContentValues values = new ContentValues();
+
         values.put(PetEntry.COLUMN_NAME, name);
         values.put(PetEntry.COLUMN_LOCATION, description);
         values.put(PetEntry.COLUMN_DESCRIPTION, location);
         values.put(PetEntry.COLUMN_AGE, age);
         values.put(PetEntry.COLUMN_PHONE, phone);
         values.put(PetEntry.COLUMN_DATE, date);
-        values.put(PetEntry.COLUMN_IMAGE, image);
+
 
         return db.update(PetEntry.TABLE_NAME, values, PetEntry._ID + "=" + id, null) > 0;
     }

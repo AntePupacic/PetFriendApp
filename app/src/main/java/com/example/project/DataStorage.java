@@ -15,4 +15,13 @@ public class DataStorage {
         petDs.close();
     }
 
+    public static Pet getPetById(Integer id){
+        for (int i = 0; i < pets.size(); i++) {
+            if (pets.get(i).getID() == id) {
+                return pets.get(i);
+            }
+        }
+        return null;
+    }
+
 }

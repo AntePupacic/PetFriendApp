@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -16,7 +18,7 @@ public class PetListActivity extends AppCompatActivity {
 
     private RecyclerView dogRecycleView;
     private PetAdapter.RecycleViewClickListener listener;
-    private FloatingActionButton addBtn, logoutBtn;
+    private FloatingActionButton addBtn;
     PetAdapter petAdapter;
     SearchView searchView;
 
@@ -38,20 +40,27 @@ public class PetListActivity extends AppCompatActivity {
         dogRecycleView.setAdapter(petAdapter);
 
         searchRecycleView();
-        logout();
 
     }
 
-
-    private void logout(){
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PetListActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+    // create an action bar button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.petlist_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.mybutton) {
+            Intent intent = new Intent(PetListActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     private void searchRecycleView(){
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -71,7 +80,6 @@ public class PetListActivity extends AppCompatActivity {
 
     private void findViews(){
         addBtn = (FloatingActionButton) findViewById(R.id.addBtn);
-        logoutBtn = (FloatingActionButton) findViewById(R.id.logoutBtn);
         searchView = (SearchView) findViewById(R.id.conatinerSearchView);
         dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
     }
@@ -81,7 +89,8 @@ public class PetListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent(PetListActivity.this, PetInfoActivity.class);
-                intent.putExtra("Position", position);
+                Integer id = DataStorage.pets.get(position).getID();
+                intent.putExtra("id", id);
                 startActivity(intent);
             }
         };

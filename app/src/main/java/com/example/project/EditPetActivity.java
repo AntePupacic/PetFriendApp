@@ -25,18 +25,23 @@ public class EditPetActivity extends AppCompatActivity {
     Button btnUpdatePet;
     ImageView petImage;
     PetDataSource petDs;
-    Integer position;
+    Integer id;
     Bitmap bitmapImg;
     SimpleDateFormat sdf;
+    Pet pet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_pet);
 
+        pet = null;
+
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            position = extras.getInt("Position");
+            id = extras.getInt("id");
+            pet = DataStorage.getPetById(id);
+
         }
 
 
@@ -55,7 +60,7 @@ public class EditPetActivity extends AppCompatActivity {
                 if(TextUtils.isEmpty(petName) || TextUtils.isEmpty(petDescription) || TextUtils.isEmpty(petAge) || TextUtils.isEmpty(petLocation) || TextUtils.isEmpty(petPhone) || (bitmapImg == null)){
                     makeToast("Nisi popunio sva polja");
                 }else{
-                    if(petDs.updatePet(DataStorage.pets.get(position).getID(), petName, petDescription, petLocation, Integer.valueOf(petAge), petPhone,sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
+                    if(petDs.updatePet(pet.getID(), petName, petDescription, petLocation, Integer.valueOf(petAge), petPhone,sdf.format(new Date()), DbBitmapUtility.getBytes(bitmapImg))){
                         makeToast("Uspjesno promjenjen podatak u DB");
                     }else{
                         makeToast("Greska pri promjeni podatka u DB");
@@ -108,13 +113,13 @@ public class EditPetActivity extends AppCompatActivity {
 
     //Inserting data from ArrayList into editText
     private void setValues(){
-        editTxtPetName.setText(DataStorage.pets.get(position).getName());
-        editTxtPetDescription.setText(DataStorage.pets.get(position).getDescription());
-        editTxtLocation.setText(DataStorage.pets.get(position).getLocation());
-        editTxtAge.setText(String.valueOf(DataStorage.pets.get(position).getAge()));
-        editTxtPhone.setText(String.valueOf(DataStorage.pets.get(position).getPhone()));
-        petImage.setImageBitmap(DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage()));
-        bitmapImg = DbBitmapUtility.getImage(DataStorage.pets.get(position).getImage());
+        editTxtPetName.setText(pet.getName());
+        editTxtPetDescription.setText(pet.getDescription());
+        editTxtLocation.setText(pet.getLocation());
+        editTxtAge.setText(String.valueOf(pet.getAge()));
+        editTxtPhone.setText(String.valueOf(pet.getPhone()));
+        petImage.setImageBitmap(DbBitmapUtility.getImage(pet.getImage()));
+        bitmapImg = DbBitmapUtility.getImage(pet.getImage());
 
     }
 

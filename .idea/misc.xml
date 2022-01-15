@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1453125" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/drawable/border.xml" value="0.13802083333333334" />
+        <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1453125" />
+        <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/drawable/mymenu.xml" value="0.1453125" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/drawable/rounded_corner.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/activity_add_pet.xml" value="0.264" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/activity_dog_list.xml" value="0.1" />
@@ -13,7 +16,10 @@
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/activity_pet_info.xml" value="0.11141304347826086" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/activity_pet_list.xml" value="0.13125" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/activity_update_pet.xml" value="0.23007246376811594" />
+        <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/mymenu.xml" value="0.12916666666666668" />
         <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/layout/pet_item.xml" value="0.264" />
+        <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/menu/mymenu.xml" value="0.12916666666666668" />
+        <entry key="..\:/Users/apupac/AndroidStudioProjects/Project/app/src/main/res/menu/petinfomenu.xml" value="0.12916666666666668" />
       </map>
     </option>
   </component>

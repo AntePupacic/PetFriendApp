@@ -22,13 +22,13 @@ import java.util.Date;
 public class AddPetActivity extends AppCompatActivity {
 
 
-    EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
-    Button btnAddPet;
-    String petName, petDescription, petLocation, petAge, petPhone;
-    ImageView petImage, btnAddImg;
-    PetDataSource petDs;
-    Bitmap bitmapImg;
-    SimpleDateFormat sdf;
+    private EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
+    private Button btnAddPet;
+    private String petName, petDescription, petLocation, petAge, petPhone;
+    private ImageView petImage, btnAddImg;
+    private PetDataSource petDs;
+    private Bitmap bitmapImg;
+    private SimpleDateFormat sdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
