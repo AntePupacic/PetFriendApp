@@ -5,7 +5,7 @@ public class Pet {
     private String name;
     private String location;
     private String description;
-    private Integer age;
+    private String age;
     private String phone;
     private String date;
     private byte[] image;
@@ -50,11 +50,11 @@ public class Pet {
         this.description = description;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

@@ -29,7 +29,7 @@ public class PetDataSource {
         db.close();
     }
 
-    public boolean addPetDetailsToDB(String name, String description, String location, Integer age, String phone, String date, byte[] image){
+    public boolean addPetDetailsToDB(String name, String description, String location, String age, String phone, String date, byte[] image){
 
         ContentValues values = new ContentValues();
         values.put(PetEntry.COLUMN_NAME, name);
@@ -59,7 +59,7 @@ public class PetDataSource {
             pet.setName(cursor.getString(1));
             pet.setDescription(cursor.getString(2));
             pet.setLocation(cursor.getString(3));
-            pet.setAge(cursor.getInt(4));
+            pet.setAge(cursor.getString(4));
             pet.setPhone(cursor.getString(5));
             pet.setDate(cursor.getString(6));
             pet.setImage(cursor.getBlob(7));
@@ -75,7 +75,7 @@ public class PetDataSource {
     }
 
 
-    public boolean updatePet(int id, String name, String description, String location, Integer age, String phone, String date, byte[] image){
+    public boolean updatePet(int id, String name, String description, String location, String age, String phone, String date, byte[] image){
 
         ContentValues values = new ContentValues();
 
@@ -85,7 +85,7 @@ public class PetDataSource {
         values.put(PetEntry.COLUMN_AGE, age);
         values.put(PetEntry.COLUMN_PHONE, phone);
         values.put(PetEntry.COLUMN_DATE, date);
-
+        values.put(PetEntry.COLUMN_IMAGE, image);
 
         return db.update(PetEntry.TABLE_NAME, values, PetEntry._ID + "=" + id, null) > 0;
     }
