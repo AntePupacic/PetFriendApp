@@ -19,8 +19,8 @@ public class PetListActivity extends AppCompatActivity {
     private RecyclerView dogRecycleView;
     private PetAdapter.RecycleViewClickListener listener;
     private FloatingActionButton addBtn;
-    PetAdapter petAdapter;
-    SearchView searchView;
+    private PetAdapter petAdapter;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

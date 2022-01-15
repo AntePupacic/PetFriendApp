@@ -19,12 +19,12 @@ import android.widget.Toast;
 
 public class PetInfoActivity extends AppCompatActivity {
 
-    TextView txtViewName, txtViewDes, txtViewLoc, txtViewAge, txtPhoneCall;
-    ImageView petImage, btnPhoneCall, btnGoogleMap;
-    Integer id;
-    String uri= "geo:0,0?q=";
-    PetDataSource petDs;
-    Pet openedPet;
+    private TextView txtViewName, txtViewDes, txtViewLoc, txtViewAge, txtPhoneCall;
+    private ImageView petImage, btnPhoneCall, btnGoogleMap;
+    private Integer id;
+    private String uri= "geo:0,0?q=";
+    private PetDataSource petDs;
+    private Pet openedPet;
 
 
     @Override

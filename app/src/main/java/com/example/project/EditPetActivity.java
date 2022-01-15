@@ -20,15 +20,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EditPetActivity extends AppCompatActivity {
-    EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
-    String petName, petDescription, petLocation, petAge, petPhone;
-    Button btnUpdatePet;
-    ImageView petImage;
-    PetDataSource petDs;
-    Integer id;
-    Bitmap bitmapImg;
-    SimpleDateFormat sdf;
-    Pet pet;
+    private EditText editTxtPetName, editTxtPetDescription, editTxtLocation, editTxtAge, editTxtPhone;
+    private String petName, petDescription, petLocation, petAge, petPhone;
+    private Button btnUpdatePet;
+    private ImageView petImage;
+    private PetDataSource petDs;
+    private Integer id;
+    private Bitmap bitmapImg;
+    private SimpleDateFormat sdf;
+    private Pet pet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
