@@ -16,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PetListActivity extends AppCompatActivity {
 
-    private RecyclerView dogRecycleView;
+    private RecyclerView petRecycleView;
     private PetAdapter.RecycleViewClickListener listener;
     private FloatingActionButton addBtn;
     private PetAdapter petAdapter;
@@ -34,10 +34,10 @@ public class PetListActivity extends AppCompatActivity {
 
 
         recycleViewClickListener();
-        dogRecycleView.addItemDecoration(new DividerItemDecoration(dogRecycleView.getContext(), DividerItemDecoration.VERTICAL));
-        dogRecycleView.setItemAnimator(new DefaultItemAnimator());
+        petRecycleView.addItemDecoration(new DividerItemDecoration(petRecycleView.getContext(), DividerItemDecoration.VERTICAL));
+        petRecycleView.setItemAnimator(new DefaultItemAnimator());
         petAdapter = new PetAdapter(getApplicationContext(), listener);
-        dogRecycleView.setAdapter(petAdapter);
+        petRecycleView.setAdapter(petAdapter);
 
         searchRecycleView();
 
@@ -81,7 +81,7 @@ public class PetListActivity extends AppCompatActivity {
     private void findViews(){
         addBtn = (FloatingActionButton) findViewById(R.id.addBtn);
         searchView = (SearchView) findViewById(R.id.conatinerSearchView);
-        dogRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
+        petRecycleView = (RecyclerView) findViewById(R.id.dogRecycleView);
     }
 
     private void recycleViewClickListener(){

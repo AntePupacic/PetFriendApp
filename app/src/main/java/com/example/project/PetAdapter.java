@@ -21,8 +21,8 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> impl
 
     public Context myContext;
     public RecycleViewClickListener myRecycleViewClickListener;
+    private   ArrayList<Pet> itemsFiltered = DataStorage.pets;
 
-    private ArrayList<Pet> itemsFiltered = DataStorage.pets;
 
     public PetAdapter(Context context, RecycleViewClickListener recycleViewClickListener) {
         myContext = context;
